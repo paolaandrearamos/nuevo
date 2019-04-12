@@ -196,10 +196,10 @@ public class Login extends javax.swing.JFrame {
 //            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectas");
 //        
 //        }
-
+    
      if(cbTipoUsuario.getSelectedIndex()==1){
             this.dispose();
-            new IngresoCliente().setVisible(true);
+            new IngresoCliente(usuario.getIdUsuarios()).setVisible(true);
         }
         
         if(cbTipoUsuario.getSelectedIndex()==2){

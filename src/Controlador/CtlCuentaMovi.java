@@ -69,5 +69,34 @@ public ArrayList<ClsCuentaMovi> listar() {
         }
         return model;
     }
-    
+    public ClsCuentaMovi SolicitudBuscarCuentaCliente(int cedula) {
+        
+        DaoGenerico usuarioDAO = new DaoGenerico();
+        //se consume el servicio
+        String res = usuarioDAO.buscar(tabla, "Persona_cedula", String.valueOf(cedula));
+        //Creamos el Gson
+        Gson json = new Gson();
+        //Convertimos la respuesta enviada desde el dao genérico y le decimos en clase lo queremos convertir
+        //Primer valor es el json string que retornamos
+        //Segundo valor es la clase en la que quieres convertir la cadena json
+        //Es muy importante que los atributos de la ClUsuaio tengan el mismo nombre
+        //que las  columnas de las tablas de la base de datos
+        ClsCuentaMovi usu = json.fromJson(res, ClsCuentaMovi.class);
+        return usu;
+    }
+     public ClsCuentaMovi SolicitudBuscar(int Cuenta_idCuenta) {
+        
+        DaoGenerico usuarioDAO = new DaoGenerico();
+        //se consume el servicio
+        String res = usuarioDAO.buscar(tabla, "idCuenta", String.valueOf(Cuenta_idCuenta));
+        //Creamos el Gson
+        Gson json = new Gson();
+        //Convertimos la respuesta enviada desde el dao genérico y le decimos en clase lo queremos convertir
+        //Primer valor es el json string que retornamos
+        //Segundo valor es la clase en la que quieres convertir la cadena json
+        //Es muy importante que los atributos de la ClUsuaio tengan el mismo nombre
+        //que las  columnas de las tablas de la base de datos
+        ClsCuentaMovi usu = json.fromJson(res, ClsCuentaMovi.class);
+        return usu;
+    }
 }

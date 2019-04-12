@@ -7,9 +7,12 @@ package Vista;
 
 import Controlador.CtlConsignacion;
 import Controlador.CtlCuenta;
+import Controlador.CtlCuentaMovi;
 import Controlador.CtlUsuario;
+import Modelo.ClsCliente;
 import Modelo.ClsConsignacion;
 import Modelo.ClsCuenta;
+import Modelo.ClsCuentaMovi;
 import Modelo.Usuario;
 import javax.swing.JOptionPane;
 
@@ -24,12 +27,18 @@ public class IngresoCliente extends javax.swing.JFrame {
      */
     //Se instancia los controladores para poder hacer uso en toda la clase
     CtlConsignacion controladorConsignacion;
-    CtlCuenta controladorCuenta;
+    CtlCuentaMovi controladorCuenta;
+    CtlUsuario controladorUsuario;
+    ClsCliente cliente;
+    int cedula;
 
-    public IngresoCliente() {
+    public IngresoCliente(int cedula) {
         initComponents();
         controladorConsignacion = new CtlConsignacion();
-        controladorCuenta = new CtlCuenta();
+        controladorCuenta = new CtlCuentaMovi();
+        controladorUsuario = new CtlUsuario();
+        this.cedula=cedula;
+        consultarCliente();
     }
 
     /**
@@ -148,7 +157,15 @@ public class IngresoCliente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+     private void consultarCliente(){
+        ClsCliente cliente = controladorUsuario.SolicitudBuscar(cedula);
+         jLabel1.setText(cliente.getNombre());
+         jLabel2.setText(cliente.getApellido());
+         ClsCuentaMovi cuenta = controladorCuenta.SolicitudBuscarCuentaCliente(cedula);
+         jLabel3.setText(cuenta.getIdCuenta()+"");
+         jLabel4.setText(cuenta.getSaldo()+"");
+         
+    }
     private void btnConsignacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsignacionActionPerformed
         //Para ingresar a la ventana de la acción consignar, primero se pide el número de la cuenta
         //y se va al método buscar para hacer la validación del dato, luego en la condición,
@@ -168,7 +185,7 @@ public class IngresoCliente extends javax.swing.JFrame {
         //y se va al método buscar para hacer la validación del dato, luego en la condición,
         //se hace la condición para que ingrese a la ventana de acceder y se muestra la información de la consulta
         int cliente = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el número de la cuenta que desea consultar: ").trim());
-        ClsCuenta usu = controladorCuenta.SolicitudBuscar(cliente);
+        ClsCuentaMovi usu = controladorCuenta.SolicitudBuscar(cliente);
         if (usu.getPersona_cedula() != 0) {
             Cuenta placa = new Cuenta(cliente);
             this.dispose();
@@ -214,7 +231,7 @@ public class IngresoCliente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new IngresoCliente().setVisible(true);
+                new IngresoCliente(0).setVisible(true);
             }
         });
     }

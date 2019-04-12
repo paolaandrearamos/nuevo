@@ -266,7 +266,7 @@ public class Consigna extends javax.swing.JFrame {
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
          //Acción del botón atrás para visualizar de nuevo la ventana ingreso cliente 
          // por si desea realizar otra acciion
-        IngresoCliente ven = new IngresoCliente();
+        IngresoCliente ven = new IngresoCliente(0);
         dispose();
         ven.setVisible(true); 
     }//GEN-LAST:event_btnAnteriorActionPerformed

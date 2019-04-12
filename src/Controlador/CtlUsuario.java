@@ -6,6 +6,7 @@
 package Controlador;
 
 import Dao.DaoGenerico;
+import Modelo.ClsCliente;
 import Modelo.Usuario;
 import com.google.gson.Gson;
 
@@ -40,13 +41,13 @@ public class CtlUsuario {
         String objeto = convertirGson(usuario);
         return dao.guardar(objeto,tabla);
     }
-//    public ClsCliente SolicitudBuscar(int cedulaU) {
-//        DaoGenerico usuarioDAO = new DaoGenerico();
-//        String res = usuarioDAO.buscar(tabla, "cedula", String.valueOf(cedulaU));
-//        Gson json = new Gson();
-//        ClsCliente mar = json.fromJson(res, ClsCliente.class);
-//        return mar;
-//    }
+    public ClsCliente SolicitudBuscar(int cedulaU) {
+        DaoGenerico usuarioDAO = new DaoGenerico();
+        String res = usuarioDAO.buscar(tabla, "cedula", String.valueOf(cedulaU));
+        Gson json = new Gson();
+        ClsCliente mar = json.fromJson(res, ClsCliente.class);
+        return mar;
+    }
 
     
 
