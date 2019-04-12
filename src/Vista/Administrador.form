@@ -507,6 +507,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtnombrepersona">
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtnombrepersonaKeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtApellidopersona">
                 </Component>
@@ -1076,11 +1079,12 @@
                     <Component class="javax.swing.JTable" name="tbCargos">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="4" rowCount="4">
-                            <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                          <Table columnCount="5" rowCount="4">
+                            <Column editable="true" title="ID CARGO" type="java.lang.Object"/>
+                            <Column editable="true" title="NOMBRE" type="java.lang.Object"/>
+                            <Column editable="true" title="HORARIO" type="java.lang.Object"/>
+                            <Column editable="true" title="SALARIO" type="java.lang.Object"/>
+                            <Column editable="true" title="BANCO" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="enabled" type="boolean" value="false"/>
@@ -1308,6 +1312,9 @@
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtnombrecargo">
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtnombrecargoKeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txthorariocargo">
                 </Component>
@@ -1607,11 +1614,15 @@
                     <Component class="javax.swing.JTextField" name="txtidCosto">
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtidCostoActionPerformed"/>
+                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtidCostoKeyTyped"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtnombreCosto">
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtmontoCosto">
+                      <Events>
+                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtmontoCostoKeyTyped"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton1">
                       <Properties>
@@ -1755,6 +1766,9 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtcodicoscuen">
+                      <Events>
+                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtcodicoscuenKeyTyped"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

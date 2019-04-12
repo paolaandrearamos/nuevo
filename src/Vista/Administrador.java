@@ -402,6 +402,12 @@ public class Administrador extends javax.swing.JFrame {
 
         jLabel33.setText("Ciudad:");
 
+        txtnombrepersona.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtnombrepersonaKeyTyped(evt);
+            }
+        });
+
         jLabel13.setText("Correo:");
 
         jLabel34.setText("Telefono:");
@@ -808,13 +814,13 @@ public class Administrador extends javax.swing.JFrame {
 
         tbCargos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID CARGO", "NOMBRE", "HORARIO", "SALARIO", "BANCO"
             }
         ));
         tbCargos.setEnabled(false);
@@ -910,6 +916,12 @@ public class Administrador extends javax.swing.JFrame {
         txtidcargo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtidcargoKeyTyped(evt);
+            }
+        });
+
+        txtnombrecargo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtnombrecargoKeyTyped(evt);
             }
         });
 
@@ -1077,6 +1089,17 @@ public class Administrador extends javax.swing.JFrame {
                 txtidCostoActionPerformed(evt);
             }
         });
+        txtidCosto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtidCostoKeyTyped(evt);
+            }
+        });
+
+        txtmontoCosto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtmontoCostoKeyTyped(evt);
+            }
+        });
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconos/save_accept.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -1148,6 +1171,12 @@ public class Administrador extends javax.swing.JFrame {
         });
 
         jLabel42.setText("Codigo:");
+
+        txtcodicoscuen.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcodicoscuenKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
         jPanel22.setLayout(jPanel22Layout);
@@ -1792,10 +1821,12 @@ public class Administrador extends javax.swing.JFrame {
             txttelefonopersona.setText(empl.getTelefono());
             cbcargo.setSelectedIndex(empl.getCargo_idCargo());
             cbsucursal.setSelectedIndex(empl.getSucursal_idSucursal());
+            
 
         } else {
             JOptionPane.showMessageDialog(null, "No se encuentran coincidencias con el id " + cedula);
             listarCargos();
+            
         }
 
 
@@ -1925,9 +1956,9 @@ public class Administrador extends javax.swing.JFrame {
         if (controladorcargo.SolicitudModificar(cargo)) {
             JOptionPane.showMessageDialog(this, "Modificado exitosamente");
             cargarCargo();
-            listabanco();
-            limpiarbanco();
-            limpiarcargo();
+          //  listabanco();
+            //limpiarbanco();
+            //limpiarcargo();
         } else {
             JOptionPane.showMessageDialog(this, "Error al modificar");
         }
@@ -2017,8 +2048,10 @@ public class Administrador extends javax.swing.JFrame {
         if (controladorempleado.SolicitudModificar(cedula, nombre, apellido, FechaNac, ciudad, correo, telefono, Cargo_idCargo, Sucursal_idSucursal)) {
             JOptionPane.showMessageDialog(this, "Modificado exitosamente");
             limpiarpersona();
-            listabanco();
-            limpiarbanco();
+           // listabanco();
+            //limpiarbanco();
+             listarEmpleado();
+            
         } else {
             JOptionPane.showMessageDialog(this, "Error al modificar");
         }
@@ -2120,7 +2153,7 @@ public class Administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txttipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttipoActionPerformed
-
+   
 
     }//GEN-LAST:event_txttipoActionPerformed
 
@@ -2138,6 +2171,26 @@ public class Administrador extends javax.swing.JFrame {
     private void cbtipocuentacostoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbtipocuentacostoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbtipocuentacostoActionPerformed
+
+    private void txtidCostoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidCostoKeyTyped
+           validarNumeros(evt);
+    }//GEN-LAST:event_txtidCostoKeyTyped
+
+    private void txtmontoCostoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtmontoCostoKeyTyped
+           validarNumeros(evt);
+    }//GEN-LAST:event_txtmontoCostoKeyTyped
+
+    private void txtcodicoscuenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcodicoscuenKeyTyped
+           validarNumeros(evt);
+    }//GEN-LAST:event_txtcodicoscuenKeyTyped
+
+    private void txtnombrepersonaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnombrepersonaKeyTyped
+        validarLetras(evt);
+    }//GEN-LAST:event_txtnombrepersonaKeyTyped
+
+    private void txtnombrecargoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnombrecargoKeyTyped
+        validarLetras(evt);
+    }//GEN-LAST:event_txtnombrecargoKeyTyped
 // cargar combo tipo cuentas
 
     private void cargartipocuenta() {

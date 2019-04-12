@@ -330,6 +330,11 @@ public class Movimientos extends javax.swing.JFrame {
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconos/save_accept.png"))); // NOI18N
         jButton4.setText("Registrar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/iconos/search_magnifi-32.png"))); // NOI18N
         jButton5.setText("Visualizar");
@@ -620,6 +625,10 @@ public class Movimientos extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_btRegistrarCuentaActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
     public void listartipomovimiento() {
         tbtipomovi.setModel(controladortipoMovi.listarTipoMovi(tbtipomovi));
     }
